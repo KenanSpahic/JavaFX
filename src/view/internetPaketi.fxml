@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.util.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import model.*?>
+<?import javafx.collections.*?> 
+
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0"
+          xmlns:fx="http://javafx.com/fxml" 
+          fx:controller="controller.internetPaketController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <VBox styleClass="main-section">
+        <children>
+            <TableView fx:id="tableView" GridPane.columnIndex="0" 
+                       GridPane.rowIndex="0">
+                <columns>
+                    <TableColumn text="ID" fx:id="id">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Ime" fx:id="ime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="firstName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Prezime" fx:id="prezime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adresa" fx:id="adresa">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="address" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Trajanje ugovora" fx:id="trajanje">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="trajanje" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Brzina" fx:id="brzina">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="brzina" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Protok" fx:id="protok">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="protok" />
+                        </cellValueFactory>
+                    </TableColumn>           
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                    </FXCollections>
+                </items>
+            </TableView> 
+            <HBox spacing="10" alignment="bottom_left" styleClass="field-section" GridPane.columnIndex="0" GridPane.rowIndex="1" stylesheets="/css/main.css">
+                <children>
+                    <TextField fx:id="fieldName" promptText="Ime" prefWidth="115" styleClass="text-field"/>
+                    <TextField fx:id="fieldLastname" promptText="Prezime" prefWidth="115" styleClass="text-field"/>
+                    <TextField fx:id="fieldAddress" promptText="Adresa" prefWidth="115" styleClass="text-field"/>
+                    <Button fx:id="addButton" prefWidth="90" onAction="#saveClient" styleClass="add-button" stylesheets="/css/main.css"/>       
+                    <Button fx:id="deleteButton" prefWidth="90" onAction="#deleteClient" styleClass="del-button" stylesheets="/css/main.css"/>       
+                </children>
+            </HBox>     
+            <HBox spacing="30" alignment="top_left" styleClass="choice-section" GridPane.columnIndex="0" GridPane.rowIndex="2" stylesheets="/css/main.css">
+                <children>
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="3">
+                        <children>
+                            <Label styleClass="title-label" stylesheets="/css/main.css">Trajanje ugovora:</Label>
+                            <RadioButton fx:id="radio_1" selected="true" styleClass="radio-choice" text="1 godina" stylesheets="/css/main.css">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="duration"/>
+                                </toggleGroup>
+                            </RadioButton>
+                            <RadioButton fx:id="radio_2" selected="false" styleClass="radio-choice" text="2 godine" toggleGroup="$duration" stylesheets="/css/main.css" />
+                        </children>
+                    </VBox>
+                    <VBox  alignment="bottom_left" styleClass="choice-brzina" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                        <Label styleClass="title-label" stylesheets="/css/main.css">Brzina interneta:</Label>
+                        <ChoiceBox value="2 Mbit" fx:id="brzinaIzbor">
+                        </ChoiceBox>
+                    </VBox>
+                    <VBox  alignment="bottom_left" styleClass="choice-protok" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Label styleClass="title-label" stylesheets="/css/main.css">Protok:</Label>
+                        <ChoiceBox value="1 GB" fx:id="protokIzbor" stylesheets="/css/main.css">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="1 GB" />
+                                    <String fx:value="5 GB" />
+                                    <String fx:value="10 GB" />
+                                    <String fx:value="100 GB" />
+                                    <String fx:value="Flat" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                    </VBox>
+                </children>
+            </HBox>     
+        </children>
+    </VBox>
+</GridPane>
+

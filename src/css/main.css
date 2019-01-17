@@ -1,0 +1,30 @@
+.add-button {
+  -fx-graphic: url(/icons/001-people.png);
+}
+
+.add-button, .choice-brzina, .choice-protok , .radio-choice, .del-button:hover {
+	-fx-cursor: hand;
+}
+
+.del-button {
+  -fx-graphic: url(/icons/002-delete-1.png);
+}
+
+.fields{
+	-fx-position:center;
+	-fx-margin:6px;
+}
+
+.title-label{
+/* 	-fx-font-weight: bold;
+	-fx-margin: 5px; */
+}
+
+.choice-protok, .choice-brzina {
+/* 	-fx-margin:10px;
+	-fx-display:inline; */
+}
+
+.field-section {
+	-fx-margin:5px, 0px;
+}
